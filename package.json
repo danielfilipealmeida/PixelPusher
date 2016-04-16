@@ -1,0 +1,24 @@
+{
+  "name": "pixelpusher",
+  "version": "0.0.1",
+  "description": "A simple pixel drawing app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pixel",
+    "draw",
+    "8bit",
+    "oldschool",
+    "retro"
+  ],
+  "author": "Daniel Almeida",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  }
+}

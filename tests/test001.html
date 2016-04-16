@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>teste</title>
+<style>
+#myCanvas {
+    width:  100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
+}
+</style>
+<body>
+  <canvas id="myCanvas"></canvas>
+</body>
+<script type='text/javascript'>
+var canvas,
+    context,
+    imageData;
+
+
+canvas      = document.getElementById('myCanvas');
+context     = canvas.getContext('2d', {antialias:false, depth: false});
+imageData   = context.createImageData(1,1);
+
+imageData.data[0]   = 0;
+imageData.data[1]   = 0;
+imageData.data[2]   = 0;
+imageData.data[3]   = 255;
+
+context.putImageData(imageData, 10, 10)
+</script>
+</html>
