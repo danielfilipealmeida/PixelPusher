@@ -45,13 +45,44 @@ PIXELPUSHER.controller = function () {
 var MiniMap = React.createClass({
     displayName: 'MiniMap',
 
+    updateWithImage: function () {
+        console.log("updating mini map");
+    },
     render: function () {
         "use strict";
 
         return React.createElement(
             'div',
             { 'class': 'miniMap', id: 'miniMapDiv' },
-            'this is the mini map'
+            React.createElement('canvas', { id: 'miniMapCanvas' })
+        );
+    }
+});
+
+var Tools = React.createClass({
+    displayName: 'Tools',
+
+    render: function () {
+        "use strict";
+
+        return React.createElement(
+            'div',
+            { 'class': 'tools', id: 'toolsMapDiv' },
+            'this are the tools'
+        );
+    }
+});
+
+var ColorSwatches = React.createClass({
+    displayName: 'ColorSwatches',
+
+    render: function () {
+        "use strict";
+
+        return React.createElement(
+            'div',
+            { 'class': 'colorSwatches', id: 'colorSwatchesDiv' },
+            'this are the color swatches'
         );
     }
 });
@@ -73,7 +104,9 @@ var ControlColumn = React.createClass({
                 null,
                 'PIXELPUSHER!'
             ),
-            React.createElement(MiniMap, null)
+            React.createElement(MiniMap, null),
+            React.createElement(Tools, null),
+            React.createElement(ColorSwatches, null)
         );
     }
 });
@@ -133,6 +166,9 @@ var DrawingCanvas = React.createClass({
         }, {
             'event': 'mousemove',
             'callback': this.handleMouseMove
+        }, {
+            'event': 'mouseout',
+            'callback': this.handleMouseUp
         }];
         mouseEventsAssignmentData.forEach(function (eventConfig, index) {
             canvas.addEventListener(eventConfig.event, eventConfig.callback, false);
@@ -226,6 +262,8 @@ var DrawingCanvas = React.createClass({
 
         this.state.data.context.imageSmoothingEnabled = false;
         this.state.data.context.drawImage(tmpCanvas, 0, 0, Number(image.width * this.state.data.zoom), Number(image.height * this.state.data.zoom));
+
+        //MiniMap.updateWithImage(image);
     },
     drawOffscreenContext_old: function () {
         var image, tmpCanvas, tmpContext;

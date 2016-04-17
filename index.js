@@ -38,11 +38,37 @@ PIXELPUSHER.controller = (function () {
     The MiniMap React Class for displaying a zoomed out version of the bitmap
 */
 var MiniMap = React.createClass({
+    updateWithImage: function() {
+        console.log("updating mini map");
+    },
     render: function () {
         "use strict";
         return (
             <div class="miniMap" id="miniMapDiv">
-                this is the mini map
+                <canvas id="miniMapCanvas"></canvas>
+            </div>
+        )
+    }
+});
+
+
+var Tools = React.createClass({
+    render: function () {
+        "use strict";
+        return (
+            <div class="tools" id="toolsMapDiv">
+                this are the tools
+            </div>
+        )
+    }
+});
+
+var ColorSwatches = React.createClass({
+    render: function () {
+        "use strict";
+        return (
+            <div class="colorSwatches" id="colorSwatchesDiv">
+                this are the color swatches
             </div>
         )
     }
@@ -59,6 +85,8 @@ var ControlColumn = React.createClass({
             <div class="controlColumn" id='controlColumnDiv'>
                 <h1>PIXELPUSHER!</h1>
                 <MiniMap />
+                <Tools />
+                <ColorSwatches />
             </div>
         )
     }
@@ -124,7 +152,11 @@ var DrawingCanvas = React.createClass({
             {
                 'event':    'mousemove',
                 'callback': this.handleMouseMove
-            }
+            },
+            {
+                'event':    'mouseout',
+                'callback': this.handleMouseUp
+            },
         ];
         mouseEventsAssignmentData.forEach(function(eventConfig, index) {
             canvas.addEventListener(eventConfig.event, eventConfig.callback, false);
@@ -232,6 +264,9 @@ var DrawingCanvas = React.createClass({
             Number(image.width * this.state.data.zoom),
             Number(image.height * this.state.data.zoom)
         );
+
+        //MiniMap.updateWithImage(image);
+
     },
     drawOffscreenContext_old: function () {
         var image,

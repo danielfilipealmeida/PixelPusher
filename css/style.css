@@ -30,6 +30,19 @@ canvas#myCanvas {
   color: #033;
   height: 100%; }
 
+#controlColumnDiv > h1 {
+  font-size: 12px;
+  text-align: center;
+  font-stretch: condensed;
+  display: block;
+  margin: 1em;
+  text-shadow: 1px 1px #fff;
+  border: 1px solid #fff;
+  padding: 0.5em; }
+
+#controlColumnDiv > h1:hover {
+  background-color: #ffe0e0; }
+
 #controlColumnDiv > div {
   margin: 1em; }
 

@@ -37,6 +37,22 @@ canvas#myCanvas {
     height: 100%;
 }
 
+#controlColumnDiv>h1 {
+    font-size: 12px;
+    text-align: center;
+    font-stretch: condensed;
+    display: block;
+    margin:1em;
+    text-shadow: 1px 1px #fff;
+    border: 1px solid #fff;
+    padding:0.5em;
+}
+#controlColumnDiv>h1:hover {
+    //background-color: change-color($primaryColor, 0, 0, 0, 0, 0, 16, 0);
+    background-color: lighten(invert($primaryColor), 4);
+}
+
+
 #controlColumnDiv>div {
     margin: 1em;
 }
